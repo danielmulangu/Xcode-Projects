@@ -1,0 +1,113 @@
+cd "C:\Program Files\Oracle\VirtualBox\" 
+VBoxManage.exe modifyvm "Your VM Name" --cpuidset 00000001 000106e5 00100800 0098e3fd bfebfbff 
+VBoxManage setextradata "Your VM Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemProduct" "iMac11,3" 
+VBoxManage setextradata "Your VM Name" "VBoxInternal/Devices/efi/0/Config/DmiSystemVersion" "1.0" 
+VBoxManage setextradata "Your VM Name" "VBoxInternal/Devices/efi/0/Config/DmiBoardProduct" "Iloveapple" 
+VBoxManage setextradata "Your VM Name" "VBoxInternal/Devices/smc/0/Config/DeviceKey" "ourhardworkbythesewordsguardedpleasedontsteal(c)AppleComputerInc" 
+VBoxManage setextradata "Your VM Name" "VBoxInternal/Devices/smc/0/Config/GetKeyFromRealSMC" 1
+
+
+
+
+
+Container(
+                height: 100.0,
+                width: 100.0,
+                  padding: EdgeInsets.only(top: 25.0, left: 5.0, right:0.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color: Colors.purple,
+                  ),
+                  child: Column(
+                    children: <Widget>[
+                      Container(
+                        child: Center(
+                          child: Text("Credit Card"),
+                        )
+                      ),
+                      Container(
+                        child: Center(
+                          child: GestureDetector(
+                            onTap: () { },
+                              child: Icon(
+                                Icons.credit_card,
+                              )
+                          )
+
+                        ),
+                      )
+
+                    ],
+                  )
+              ),
+
+
+
+
+              ClipOval(
+                child: Material(
+                  color: Colors.purpleAccent, // button color
+                  child: InkWell(
+                    splashColor: Colors.red, // inkwell color
+                    child: SizedBox(width: 100, height: 100, child: Icon(Icons.credit_card)),
+
+                    onTap: () {},
+                  ),
+
+                ),
+              )
+
+
+
+
+
+
+
+
+
+              FlatButton.icon(onPressed: (){} ,
+
+                icon: Icon(
+                  Icons.mail,
+                  color: Colors.black,
+                  size: 10.0,
+                ),
+                label: Text(
+                  "Credit Card  ",
+                  style: TextStyle(
+                    fontSize: 17.0,
+                  ),
+                ),
+                shape: CircleBorder(
+
+                ),
+                color: Colors.purpleAccent,
+              ),
+
+
+
+
+
+
+              delegate: SliverChildBuilderDelegate(
+        (BuildContext context, int index) {
+          return Container(
+            alignment: Alignment.center,
+            color: Colors.teal[100 * (index % 9)],
+            child: Text('Grid Item $index'),
+          );
+        },
+        childCount: 20,
+      ),
+   
+
+
+   Container(
+                         alignment: Alignment.center,
+                         color: Colors.blueGrey,
+                         child: Text('Grid Item ',
+                           style: TextStyle(color: Colors.black,fontSize: 20.0,
+                               fontWeight: FontWeight.bold,
+                               fontFamily: 'Montserrat'),
+                         ),
+                       );

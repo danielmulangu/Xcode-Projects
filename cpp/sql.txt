@@ -1,0 +1,41 @@
+
+CREATE TABLE exam_paper(
+archive_location VARCHAR(6),
+lecturer VARCHAR(255) NOT NULL,
+academic_year VARCHAR(45) NOT NULL,
+exam_type VARCHAR(45) NOT NULL,
+course_code VARCHAR(10) NOT NULL,
+department  VARCHAR(100) NOT NULL,
+insertion_date date,
+expiration_date date,
+borrower VARCHAR(255),
+PRIMARY KEY(archive_location)
+  
+);
+
+
+`lecturer`, `academic_year`,`exam_type`, `course code`, 
+         `department`, `insertion_date`, `expiring_date`
+require_once('connection.php');
+// how am i going to get the table name ?????????????
+    $table = $_POST['varname'];
+    
+$sql = " SELECT * FROM $table";
+$result = mysqli_query($conn,$sql) ;
+$y = mysqli_field_count($conn); 
+$x = $y-4 ; //i diducted 4 because i have the columns for (id , new , date , date) i wont be using , they will be filled automatically. 
+for($i=1 ; $i<$y ; $i++){ echo" 'detail'.$i "; }
+
+for($i=1 ; $i<$y ; $i++)
+{   
+    $holding_place = 'detail'.$i ;
+    $detail = $_POST[$holding_place] ; 
+
+
+   $sql = "DELETE field_$i FROM test WHERE field_$i='$detail' ";     //this function udates an already existing row , so i will insert a rando row before the for so i can update it here \
+    $result_2 = mysqli_query($conn,$sql) ; 
+
+}
+
+
+for($i=1 ; $i<$y ; $i++){ echo" 'detail'.$i "; }

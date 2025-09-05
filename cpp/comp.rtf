@@ -1,0 +1,64 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2513
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
+{\colortbl;\red255\green255\blue255;}
+{\*\expandedcolortbl;;}
+\margl1440\margr1440\vieww10800\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 #include<stdio.h>\
+Int main()\
+\{\
+int num;\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0   printf("How many students are in class?");\
+  scanf("%d",&num);\
+  int i=0,j=0;\
+  float up[5];\
+  loop: while(i<5)\
+  \{\
+      scanf("%f",&up[i]);\
+      if(i<4)\
+      \{\
+         if(up[i]<40)\{ \
+             printf("\\nPassing grade must be at least 40, Please reconsider grade boundaries");\
+             goto loop;\}\
+      \}\
+      i++;\
+  \}\
+ \
+ float gr,min,max,avg=0;\
+ int a=0,b=0,c=0,d=0,f=0,pass=0,fail=0;\
+ while(j<num)\
+ \{\
+     printf("\\nPlease enter the student grade");\
+     scanf("%f",&gr);\
+     avg+=gr;\
+     if(j=0) \{ min=gr; max=gr;\}\
+     else\
+      \{\
+         if(gr>max) \{max=gr;\}\
+         if(gr<min)  \{min=gr;\}\
+      \}\
+      if(gr>=up[0]) \{a++;pass++;\}\
+      else if(gr>=up[1]) \{b++; pass++;\}\
+      else if(gr>=up[2]) \{c++; pass++;\}\
+      else if(gr>=up[3]) \{d++; pass++;\}\
+      else \{f++; fail++;\}\
+      j++;\
+ \}\
+ avg=avg/num;\
+int val;\
+if(a==0)\{ \
+    printf("\\nNo students received the A grade would you like to start over and reconsider granding boundaries? if yes please enter 1 otherwise enter 2 to continue! ");\
+        scanf("%d",&val);  \
+        if(val==1)\{goto loop;\}\
+        \}\
+int class=num*0.75;\
+if(class>=pass)\{printf("\\nMost of the students have passed!");\}\
+ printf("\\nThe highest grade is %f \\nThe lowest grade is %f \\nThe average is %f",max,min,avg);\
+ if(avg>up[3]) \{printf("\\n Sucessful Course!");\}\
+printf("\\nA %d students \\n B %d students\\n C %d Students \\n D %d students F %d students",a,b,c,d,f);\
+\
+return 0;\
+\}\
+ }
