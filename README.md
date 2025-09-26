@@ -1,3 +1,3 @@
 -------------------------------------------
 
-Note: Contains most of the project i worked with in XCode 
+Note: This repo contains most of the small scale projects i worked on in XCode (mostly native iOS native development)
